@@ -123,7 +123,7 @@ namespace UnityEditor.ProBuilder
         {
             Entity ent = pb.GetComponent<Entity>();
 
-            if (ent != null && ent.entityType == EntityType.Detail)
+            if (ent != null && ent.entityType == UnityEngine.ProBuilder.EntityType.Detail)
             {
                 StaticEditorFlags flags = GameObjectUtility.GetStaticEditorFlags(pb.gameObject);
 

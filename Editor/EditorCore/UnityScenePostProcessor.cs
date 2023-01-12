@@ -105,7 +105,7 @@ namespace UnityEditor.ProBuilder
             if (entity == null)
                 return null;
 
-            if (entity.entityType == EntityType.Collider || entity.entityType == EntityType.Trigger)
+            if (entity.entityType == UnityEngine.ProBuilder.EntityType.Collider || entity.entityType == UnityEngine.ProBuilder.EntityType.Trigger)
                 go.GetComponent<MeshRenderer>().enabled = false;
 
             return entity;

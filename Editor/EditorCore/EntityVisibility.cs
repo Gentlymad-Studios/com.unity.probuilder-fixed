@@ -36,7 +36,7 @@ namespace UnityEditor.ProBuilder
         /// </summary>
         /// <param name="entityType"></param>
         /// <param name="isVisible"></param>
-        public static void SetEntityVisibility(EntityType entityType, bool isVisible)
+        public static void SetEntityVisibility(UnityEngine.ProBuilder.EntityType entityType, bool isVisible)
         {
             foreach (var entity in EditorUtility.FindObjectsByType<Entity>())
             {

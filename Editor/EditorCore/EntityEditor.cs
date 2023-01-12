@@ -33,8 +33,8 @@ namespace UnityEditor.ProBuilder
             if (pb == null) return;
             if (ent == null) return;
 
-            EntityType et = ent.entityType;
-            et = (EntityType)EditorGUILayout.EnumPopup("Entity Type", et);
+            UnityEngine.ProBuilder.EntityType et = ent.entityType;
+            et = (UnityEngine.ProBuilder.EntityType)EditorGUILayout.EnumPopup("Entity Type", et);
             if (et != ent.entityType)
             {
                 UndoUtility.RecordObjects(new Object[] {ent, ent.gameObject.GetComponent<ProBuilderMesh>() }, "Set Entity Type");
@@ -101,12 +101,12 @@ namespace UnityEditor.ProBuilder
                     {
                         MeshCollider col = go.AddComponent<MeshCollider>();
 
-                        if (ent.entityType == EntityType.Trigger)
+                        if (ent.entityType == UnityEngine.ProBuilder.EntityType.Trigger)
                         {
                             col.convex = true;
                             col.isTrigger = true;
                         }
-                        else if (ent.entityType == EntityType.Collider)
+                        else if (ent.entityType == UnityEngine.ProBuilder.EntityType.Collider)
                         {
                             col.convex = true;
                         }
@@ -123,7 +123,7 @@ namespace UnityEditor.ProBuilder
                     {
                         BoxCollider col = go.AddComponent<BoxCollider>();
 
-                        if (ent.entityType == EntityType.Trigger || isTrigger)
+                        if (ent.entityType == UnityEngine.ProBuilder.EntityType.Trigger || isTrigger)
                             col.isTrigger = true;
                         break;
                     }
@@ -131,7 +131,7 @@ namespace UnityEditor.ProBuilder
                     case ColType.SphereCollider:
                     {
                         SphereCollider col = go.AddComponent<SphereCollider>();
-                        if (ent.entityType == EntityType.Trigger || isTrigger)
+                        if (ent.entityType == UnityEngine.ProBuilder.EntityType.Trigger || isTrigger)
                             col.isTrigger = true;
                         break;
                     }

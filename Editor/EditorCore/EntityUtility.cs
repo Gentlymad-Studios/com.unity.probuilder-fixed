@@ -30,7 +30,7 @@ namespace UnityEditor.ProBuilder
         /// <param name="newEntityType">The type to set.</param>
         /// <param name="target">The gameObject to apply the EntityType to.  Must contains pb_Object and pb_Entity components.  Method does contain null checks.</param>
         [Obsolete("pb_Entity is deprecated. Manage static flags manually or use Set Trigger/Set Collider actions.")]
-        public static void SetEntityType(EntityType newEntityType, GameObject target)
+        public static void SetEntityType(UnityEngine.ProBuilder.EntityType newEntityType, GameObject target)
         {
             Entity ent = target.GetComponent<Entity>();
 
@@ -46,20 +46,20 @@ namespace UnityEditor.ProBuilder
 
             switch (newEntityType)
             {
-                case EntityType.Detail:
-                case EntityType.Occluder:
+                case UnityEngine.ProBuilder.EntityType.Detail:
+                case UnityEngine.ProBuilder.EntityType.Occluder:
                     SetBrush(target);
                     break;
 
-                case EntityType.Trigger:
+                case UnityEngine.ProBuilder.EntityType.Trigger:
                     SetTrigger(target);
                     break;
 
-                case EntityType.Collider:
+                case UnityEngine.ProBuilder.EntityType.Collider:
                     SetCollider(target);
                     break;
 
-                case EntityType.Mover:
+                case UnityEngine.ProBuilder.EntityType.Mover:
                     SetDynamic(target);
                     break;
             }
@@ -70,10 +70,10 @@ namespace UnityEditor.ProBuilder
         [Obsolete("pb_Entity is deprecated. Manage static flags manually or use Set Trigger/Set Collider actions.")]
         static void SetBrush(GameObject target)
         {
-            EntityType et = target.GetComponent<Entity>().entityType;
+            UnityEngine.ProBuilder.EntityType et = target.GetComponent<Entity>().entityType;
 
-            if (et == EntityType.Trigger ||
-                et == EntityType.Collider)
+            if (et == UnityEngine.ProBuilder.EntityType.Trigger ||
+                et == UnityEngine.ProBuilder.EntityType.Collider)
             {
                 ProBuilderMesh pb = target.GetComponent<ProBuilderMesh>();
                 foreach (var face in pb.facesInternal)
@@ -86,12 +86,12 @@ namespace UnityEditor.ProBuilder
         [Obsolete("pb_Entity is deprecated. Manage static flags manually or use Set Trigger/Set Collider actions.")]
         static void SetDynamic(GameObject target)
         {
-            EntityType et = target.GetComponent<Entity>().entityType;
+            UnityEngine.ProBuilder.EntityType et = target.GetComponent<Entity>().entityType;
 
             SetEditorFlags((StaticEditorFlags)0, target);
 
-            if (et == EntityType.Trigger ||
-                et == EntityType.Collider)
+            if (et == UnityEngine.ProBuilder.EntityType.Trigger ||
+                et == UnityEngine.ProBuilder.EntityType.Collider)
             {
                 ProBuilderMesh pb = target.GetComponent<ProBuilderMesh>();
                 foreach (var face in pb.facesInternal)
